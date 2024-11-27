@@ -43,7 +43,7 @@ class Server {
         this.routes();
     }
     config() {
-        this.app.set('port', process.env.PORT || 3003);
+        this.app.set('port', process.env.PORT || 3033);
         // this.app.use(morgan('dev'));
         this.app.use((0, cors_1.default)(corsOptions));
         this.app.use(express_1.default.urlencoded({ extended: true }));

@@ -54,7 +54,7 @@ export class Server {
     }
 
     config(): void {
-        this.app.set('port', process.env.PORT || 3003);
+        this.app.set('port', process.env.PORT || 3033);
         // this.app.use(morgan('dev'));
         this.app.use(cors(corsOptions));
         this.app.use(express.urlencoded({ extended: true }));
