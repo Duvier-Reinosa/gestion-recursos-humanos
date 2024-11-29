@@ -1,0 +1,44 @@
+<!-- src/app/components/employee-form/employee-form.component.html -->
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="employee-form">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" required>
+    </div>
+  
+    <div>
+      <label for="document">Document</label>
+      <input id="document" type="text" formControlName="document" required>
+    </div>
+  
+    <div>
+      <label for="address">Address</label>
+      <input id="address" type="text" formControlName="address" required>
+    </div>
+  
+    <div>
+      <label for="init_date">Init Date</label>
+      <input id="init_date" type="date" formControlName="init_date" required>
+    </div>
+  
+    <div>
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" required>
+    </div>
+  
+    <div>
+      <label for="phone_number">Phone Number</label>
+      <input id="phone_number" type="tel" formControlName="phone_number" required>
+    </div>
+  
+    <div>
+      <label for="status">Employee Status</label>
+      <select id="status" formControlName="status" required>
+        <option value="">Select a status</option>
+        <option *ngFor="let status of employeeStatuses" [value]="status.id">
+          {{ status.name }}
+        </option>
+      </select>
+    </div>
+  
+    <button type="submit" [disabled]="!employeeForm.valid">Create Employee</button>
+  </form>
