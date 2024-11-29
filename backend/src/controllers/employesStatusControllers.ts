@@ -17,7 +17,7 @@ import multer from 'multer';
 
 class EmployesStatusController {
     public async listStatus(req: Request, res: Response): Promise<void> {
-        const response = await db.query('SELECT * FROM actual_employe_status');
+        const response = await db.query('SELECT * FROM employe_status');
         res.json(response.rows);
     }
 

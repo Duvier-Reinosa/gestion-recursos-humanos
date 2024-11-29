@@ -23,7 +23,7 @@ const database_1 = require("../database");
 class EmployesStatusController {
     listStatus(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield database_1.db.query('SELECT * FROM actual_employe_status');
+            const response = yield database_1.db.query('SELECT * FROM employe_status');
             res.json(response.rows);
         });
     }
