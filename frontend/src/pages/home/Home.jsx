@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import { Tab, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Header from '../../components/header'
@@ -35,18 +35,22 @@ function Home () {
                             <TableCell>Fecha de ingreso</TableCell>
                             <TableCell>Estado</TableCell>
                             <TableCell>documento</TableCell>
-                            
+                            <TableCell>Acciones</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {loading && <TableRow><TableCell colSpan={5}>Cargando...</TableCell></TableRow>}
                         {employess.map((employe) => (
-                            <TableRow key={employe.id} onClick={() => navigate(`/employe/${employe.id}`)} style={{ cursor: 'pointer'}}>
+                            <TableRow key={employe.id}>
                                 <TableCell>{employe.name}</TableCell>
                                 <TableCell>{employe.address}</TableCell>
                                 <TableCell>{moment(employe.init_date).format('MM/DD/YYYY')}</TableCell>
                                 <TableCell>{employe.status_name}</TableCell>
                                 <TableCell>{employe.document}</TableCell>
+                                <TableCell>
+                                    <button onClick={() => navigate(`/employe/${employe.id}`)} style={{ cursor: 'pointer', marginRight: 5, height: 35, width: 90, borderRadius: 25, border: 'none'}}>editar</button>
+                                    <button onClick={() => navigate(`/payments/${employe.id}`)} style={{ cursor: 'pointer', marginRight: 5, height: 35, width: 90, borderRadius: 25, border: 'none'}}>pagos</button>
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

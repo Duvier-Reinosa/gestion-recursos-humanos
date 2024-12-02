@@ -2,39 +2,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/header";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import EmployeFiles from "../../components/employeFiles";
 
-// {
-//     ddress
-// : 
-// null
-// created_at
-// : 
-// "2024-11-28T02:01:32.337Z"
-// document
-// : 
-// "123456789"
-// email
-// : 
-// null
-// id
-// : 
-// 1
-// init_date
-// : 
-// null
-// name
-// : 
-// "Duvier Reinosa"
-// phone_number
-// : 
-// "3145678909"
-// updated_at
-// : 
-// null
-// }
 
 function Employe() {
-    const navigate = useNavigate();
     const {id} = useParams();
 
     const [employe, setEmploye] = useState({});
@@ -85,6 +56,7 @@ function Employe() {
             <input className="employeInput" value={employe.address} type="text" placeholder="Dirección" onChange={ev => setEmploye({...employe, address: ev.target.value})} />
             <input className="employeInput" value={employe.init_date} type="date" placeholder="Fecha de ingreso" onChange={ev => setEmploye({...employe, init_date: ev.target.value})} />
             <input className="employeInput" value={employe.phone_number} type="text" placeholder="Teléfono" onChange={ev => setEmploye({...employe, phone_number: ev.target.value})} />
+            <input className="employeInput" value={employe.email} type="text" placeholder="Correo" onChange={ev => setEmploye({...employe, email: ev.target.value})} />
             <select className="employeInput" value={employe.employe_status_id} onChange={ev => setEmploye({...employe, employe_status_id: ev.target.value})}>
                 <option value="">Seleccione un estado</option>
                 {status.map((status) => (
@@ -105,6 +77,7 @@ function Employe() {
                     })
             }}>Actualizar</button>
           </div>
+          <EmployeFiles />
       </div>
     );
 }

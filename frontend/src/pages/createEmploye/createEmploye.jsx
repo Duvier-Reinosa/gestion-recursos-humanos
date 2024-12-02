@@ -76,6 +76,7 @@ function Employe() {
             <input className="employeInput" value={employe.address} type="text" placeholder="Dirección" onChange={ev => setEmploye({...employe, address: ev.target.value})} />
             <input className="employeInput" value={employe.init_date} type="date" placeholder="Fecha de ingreso" onChange={ev => setEmploye({...employe, init_date: ev.target.value})} />
             <input className="employeInput" value={employe.phone_number} type="text" placeholder="Teléfono" onChange={ev => setEmploye({...employe, phone_number: ev.target.value})} />
+            <input className="employeInput" value={employe.email} type="text" placeholder="Correo" onChange={ev => setEmploye({...employe, email: ev.target.value})} />
             <select className="employeInput" value={employe.employe_status_id} onChange={ev => setEmploye({...employe, employe_status_id: ev.target.value})}>
                 <option value="">Seleccione un estado</option>
                 {status.map((status) => (
